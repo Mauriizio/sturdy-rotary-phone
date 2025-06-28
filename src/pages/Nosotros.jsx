@@ -5,7 +5,7 @@ import { Heart, Star, Users, Award, BookOpen, ShoppingBag, MessageCircle } from 
 
 export default function Nosotros() {
   const handleWhatsAppContact = () => {
-    const phoneNumber = "573001234567" // Reemplaza con el número real
+    const phoneNumber = "56935626296" // Reemplaza con el número real
     const message = "¡Hola Damaris y Mailyn! Me encanta su historia y me gustaría conocer más sobre Dulces Secretos 🍰❤️"
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, "_blank")

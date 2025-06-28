@@ -8,7 +8,7 @@ export default function Productos() {
   const [productoSeleccionado, setProductoSeleccionado] = useState(null)
 
   const handleWhatsAppOrder = (producto) => {
-    const phoneNumber = "573001234567" // Reemplaza con el número real
+    const phoneNumber = "56935626296" // Reemplaza con el número real
     const message = `¡Hola! Me interesa ordenar algo similar a: "${producto.nombre}" 🍰
 
 📝 *Detalles del producto que me gustó:*

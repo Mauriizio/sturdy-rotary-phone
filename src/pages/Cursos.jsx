@@ -4,7 +4,7 @@ import { Download, Clock, Users, Star, CheckCircle, BookOpen, Award, MessageCirc
 
 export default function Cursos() {
   const handleWhatsAppClick = (curso) => {
-    const phoneNumber = "573001234567" // Reemplaza con el número real
+    const phoneNumber = "56935626296" // Reemplaza con el número real
     const message = `¡Hola! Me interesa el curso "${curso}" 📚. ¿Podrías darme más información sobre el pago y descarga?`
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, "_blank")

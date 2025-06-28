@@ -55,7 +55,7 @@ export default function Contacto() {
 ${formData.mensaje}
       `.trim()
 
-      const phoneNumber = "573001234567" // Reemplaza con el número real
+      const phoneNumber = "56935626296" // Reemplaza con el número real
       const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(mensaje)}`
       window.open(whatsappUrl, "_blank")
 
@@ -75,7 +75,7 @@ ${formData.mensaje}
   }
 
   const handleWhatsAppDirect = () => {
-    const phoneNumber = "573001234567"
+    const phoneNumber = "56935626296"
     const message = "¡Hola! Me gustaría hacer una consulta sobre sus productos 🍰"
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, "_blank")
