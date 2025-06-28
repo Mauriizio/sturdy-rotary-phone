@@ -7,6 +7,8 @@ import {
   Home,
   Candy,
   Phone,
+  Book,
+  Users,
 } from 'lucide-react';
 import logo from '../assets/logo2.jpg';
 
@@ -17,7 +19,7 @@ export default function Header() {
   const closeMenu = () => setMenuOpen(false);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
+    <header className="fixed top-0 left-0 w-full z-50 bg-gradient-to-r from-pink-100 via-rose-50 to-pink-100 shadow-md transition-all duration-300">
       <div className="relative flex items-center justify-between px-4 py-3 md:px-8">
 
         {/* Logo */}
@@ -25,7 +27,7 @@ export default function Header() {
           <img
             src={logo}
             alt="Logo Dulces Secretos"
-            className="h-16 w-auto object-contain rounded"
+            className="h-16 w-auto object-contain rounded shadow-md"
           />
         </div>
 
@@ -46,32 +48,56 @@ export default function Header() {
 
         {/* Menú escritorio */}
         <nav className="hidden md:flex space-x-6 items-center">
-          <Link to="/" className="flex items-center gap-1 text-gray-700 hover:text-pink-600">
+          <Link to="/" className="flex items-center gap-1 text-gray-700 hover:text-pink-600 transition-colors">
             <Home className="w-5 h-5" /> Inicio
           </Link>
-          <Link to="/productos" className="flex items-center gap-1 text-gray-700 hover:text-pink-600">
+          <Link to="/productos" className="flex items-center gap-1 text-gray-700 hover:text-pink-600 transition-colors">
             <Candy className="w-5 h-5" /> Productos
           </Link>
-          <Link to="/contacto" className="flex items-center gap-1 text-gray-700 hover:text-pink-600">
+          <Link to="/cursos" className="flex items-center gap-1 text-gray-700 hover:text-pink-600 transition-colors">
+            <Book className="w-5 h-5" /> Cursos
+          </Link>
+
+          <Link to="/about" className="flex items-center gap-1 text-gray-700 hover:text-pink-600 transition-colors">
+            <Users className="w-5 h-5" /> Nosotros
+          </Link>
+
+          <Link to="/contacto" className="flex items-center gap-1 text-gray-700 hover:text-pink-600 transition-colors">
             <Phone className="w-5 h-5" /> Contacto
           </Link>
         </nav>
       </div>
 
-      {/* Menú móvil desplegable */}
-      {menuOpen && (
-        <div className="md:hidden px-4 pb-4 space-y-2 flex flex-col items-center">
-          <Link to="/" onClick={closeMenu} className="flex items-center gap-2 py-2 text-gray-700 hover:text-pink-600">
+      {/* Menú móvil desplegable animado */}
+      <div
+        className={`overflow-hidden transition-all duration-500 ease-in-out ${
+          menuOpen ? 'max-h-40 opacity-100' : 'max-h-0 opacity-0'
+        }`}
+      >
+        <div className="md:hidden px-4 pb-4 pt-2 flex flex-col items-center mx-[vw/2] space-y-2 bg-pink-50 rounded-b-lg shadow-inner">
+          
+          <Link to="/" onClick={closeMenu} className="flex items-center gap-2 text-gray-700 hover:text-pink-600">
             <Home className="w-5 h-5" /> Inicio
           </Link>
-          <Link to="/productos" onClick={closeMenu} className="flex items-center gap-2 py-2 text-gray-700 hover:text-pink-600">
+
+          <Link to="/productos" onClick={closeMenu} className="flex items-center gap-2 text-gray-700 hover:text-pink-600">
             <Candy className="w-5 h-5" /> Productos
           </Link>
-          <Link to="/contacto" onClick={closeMenu} className="flex items-center gap-2 py-2 text-gray-700 hover:text-pink-600">
+
+          <Link to="/cursos" onClick={closeMenu} className="flex items-center gap-2 text-gray-700 hover:text-pink-600">
+            <Book className="w-5 h-5" /> Cursos
+          </Link>
+
+           <Link to="/about" onClick={closeMenu} className="flex items-center gap-2 text-gray-700 hover:text-pink-600">
+            <Users className="w-5 h-5" /> Nosotros
+          </Link>
+
+          <Link to="/contacto" onClick={closeMenu} className="flex items-center gap-2 text-gray-700 hover:text-pink-600">
             <Phone className="w-5 h-5" /> Contacto
           </Link>
+
         </div>
-      )}
+      </div>
     </header>
   );
 }
