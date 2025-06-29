@@ -52,37 +52,69 @@ export default function Inicio() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-pink-100 to-purple-100 py-20 px-4">
-        <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold text-gray-800 mb-6">
-            Bienvenido a <span className="text-pink-600">Dulces Secretos</span> 🍰
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-            Endulzamos tus momentos especiales con los postres más deliciosos, hechos con amor y los mejores
-            ingredientes.
-          </p>
+      {/* Ajustes responsivos de imagen y contenido */}
 
-          {/* Botones de Llamada a la Acción */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link
-              to="/productos"
-              className="bg-pink-600 hover:bg-pink-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-colors duration-300 flex items-center gap-2 shadow-lg"
-            >
-              <ShoppingBag size={24} />
-              Ver Nuestros Productos
-            </Link>
+<section
+  className="
+    relative
+    h-full sm:h-screen
+    py-20 px-4
+    overflow-hidden
+  "
+>
+  {/* Imagen PNG como fondo */}
+  <div
+    className="
+      absolute inset-0
+      bg-[url('/fondomailyn.png')]
+      bg-no-repeat
+      bg-[length:140%] sm:bg-[length:auto]
+      bg-left sm:bg-center
+      sm:bg-[position:center_-600px] 
+      z-10
+      transition-all duration-300
+    "
+  ></div>
 
-            <button
-              onClick={handleWhatsAppClick}
-              className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-colors duration-300 flex items-center gap-2 shadow-lg"
-            >
-              <MessageCircle size={24} />
-              Contactar por WhatsApp
-            </button>
-          </div>
-        </div>
-      </section>
+  {/* Capa de fondo degradado detrás del PNG */}
+  <div
+    className="
+      absolute inset-0
+      bg-gradient-to-br from-pink-100 via-pink-200 to-purple-200
+      z-0
+    "
+  ></div>
+
+  <div className="relative z-20 max-w-6xl mx-auto text-center">
+    <h1 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-64 sm:mb-6 max-w-md sm:max-w-none my-2 mx-auto">
+      <span className="text-pink-600">Dulces </span> <span className="text-pink-600"> Secretos</span>
+    </h1>
+    <p className="text-base sm:text-xl text-back  mb-6 sm:mb-10 p-2 max-w-sm sm:max-w-3xl mx-auto font-extrabold">
+      Endulzamos tus momentos con amor y los mejores ingredientes.
+    </p>
+
+    {/* Botones de Llamada a la Acción */}
+    <div className="mt-4  sm:mt-6 flex flex-col sm:flex-row gap-4 justify-center items-center sm: mb-2">
+      <Link
+        to="/productos"
+        className="bg-pink-600 hover:bg-pink-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-colors duration-300 flex items-center gap-2 shadow-lg"
+      >
+        <ShoppingBag size={24} />
+        Ver Nuestros Productos
+      </Link>
+
+      <button
+        onClick={handleWhatsAppClick}
+        className="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full text-lg font-semibold transition-colors duration-300 flex items-center gap-2 shadow-lg"
+      >
+        <MessageCircle size={24} />
+        Contactar por WhatsApp
+      </button>
+    </div>
+  </div>
+</section>
+
+
 
       {/* Productos Destacados */}
       <section className="py-16 px-4 bg-white">
