@@ -57,9 +57,10 @@ export default function Inicio() {
 <section
   className="
     relative
-    h-full sm:h-screen
+    min-h-screen
     py-20 px-4
     overflow-hidden
+    flex items-center justify-center
   "
 >
   {/* Imagen PNG como fondo */}
@@ -70,7 +71,7 @@ export default function Inicio() {
       bg-no-repeat
       bg-[length:140%] sm:bg-[length:auto]
       bg-left sm:bg-center
-      sm:bg-[position:center_-600px] 
+      sm:bg-[position:center_-600px]
       z-10
       transition-all duration-300
     "
@@ -85,16 +86,18 @@ export default function Inicio() {
     "
   ></div>
 
-  <div className="relative z-20 max-w-6xl mx-auto text-center">
-    <h1 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-64 sm:mb-6 max-w-md sm:max-w-none my-2 mx-auto">
-      <span className="text-pink-600">Dulces </span> <span className="text-pink-600"> Secretos</span>
+  <div className="relative z-20 w-full max-w-4xl flex flex-col items-center text-center gap-6 sm:gap-8">
+    <h1 className="text-4xl sm:text-5xl font-bold text-gray-800 max-w-md sm:max-w-none mx-auto">
+      <span className="text-pink-600">Dulces </span>
+      <span className="text-pink-600">Secretos</span>
     </h1>
-    <p className="text-base sm:text-xl text-back  mb-6 sm:mb-10 p-2 max-w-sm sm:max-w-3xl mx-auto font-extrabold">
+
+    <p className="text-base sm:text-xl text-back px-4 max-w-sm sm:max-w-2xl font-extrabold">
       Endulzamos tus momentos con amor y los mejores ingredientes.
     </p>
 
     {/* Botones de Llamada a la Acción */}
-    <div className="mt-4  sm:mt-6 flex flex-col sm:flex-row gap-4 justify-center items-center sm: mb-2">
+    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
       <Link
         to="/productos"
         className="bg-pink-600 hover:bg-pink-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-colors duration-300 flex items-center gap-2 shadow-lg"
