@@ -1,11 +1,33 @@
 "use client"
-
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom"
 import { ShoppingBag, MessageCircle, Star, Clock, Award, Heart } from "lucide-react"
 
 export default function Inicio() {
+  
+  const videoRef = useRef(null);
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          video.play();
+        } else {
+          video.pause();
+        }
+      },
+      { threshold: 0.5 } // Reproduce cuando 50% del video esté visible
+    );
+
+    observer.observe(video);
+    return () => observer.disconnect();
+  }, []);
+
+
   const handleWhatsAppClick = () => {
-    const phoneNumber = "56935626296" // Reemplaza con el número real
+    const phoneNumber = "56935626296" 
     const message = "¡Hola! Me interesa conocer más sobre sus deliciosos productos 🍰"
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`
     window.open(whatsappUrl, "_blank")
@@ -16,30 +38,30 @@ export default function Inicio() {
       nombre: "Torta de Chocolate",
       descripcion: "Deliciosa torta de chocolate con ganache",
       precio: "$45.000",
-      imagen: "/placeholder.svg?height=200&width=200",
+      imagen: "/public/Tortas/chocolate1.png",
     },
     {
-      nombre: "Cupcakes Variados",
-      descripcion: "Set de 6 cupcakes con diferentes sabores",
+      nombre: "Buttercream",
+      descripcion: "Deliciosa ButterCream Personalizada",
       precio: "$25.000",
-      imagen: "/placeholder.svg?height=200&width=200",
+      imagen: "/public/Tortas/buttercream1.png",
     },
     {
-      nombre: "Cheesecake de Frutos Rojos",
-      descripcion: "Cremoso cheesecake con frutos rojos frescos",
+      nombre: "Torta Tres Leches",
+      descripcion: "Torta Tres Leches Personalizada",
       precio: "$38.000",
-      imagen: "/placeholder.svg?height=200&width=200",
+      imagen: "/public/Tortas/tresleches1.png",
     },
   ]
 
   const testimonios = [
     {
-      nombre: "María González",
-      comentario: "¡Los mejores postres de la ciudad! Siempre frescos y deliciosos.",
+      nombre: "Daniela Cortes",
+      comentario: "Cada cumpleaños de mi hijo mando hacer su torta y postres con Dulces Secretos, Son las mejores",
       rating: 5,
     },
     {
-      nombre: "Carlos Rodríguez",
+      nombre: "Laura Pabon",
       comentario: "Excelente servicio y calidad. Mis hijos aman sus cupcakes.",
       rating: 5,
     },
@@ -53,6 +75,7 @@ export default function Inicio() {
   return (
     <div className="min-h-screen">
 
+       {/* PORTADA */}
 
       {/* Ajustes responsivos de imagen y contenido */}
 
@@ -81,7 +104,7 @@ export default function Inicio() {
       bg-no-repeat
 
 
-      bg-[length:140%] 
+      bg-[length:110%] 
       sm:bg-[length:80%]
       md:bg-[length:90%]
       lg:bg-[length:65%]
@@ -125,6 +148,11 @@ export default function Inicio() {
         to="/productos"
         className="bg-pink-600 hover:bg-pink-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-colors duration-300 flex items-center gap-2 shadow-lg"
       >
+
+
+      {/* PRODUCTOS DESTACADOS */}
+
+
         <ShoppingBag size={24} />
         Ver Nuestros Productos
       </Link>
@@ -147,7 +175,7 @@ export default function Inicio() {
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">Nuestros Productos Destacados</h2>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-4">
             {productosDestacados.map((producto, index) => (
               <div
                 key={index}
@@ -156,7 +184,7 @@ export default function Inicio() {
                 <img
                   src={producto.imagen || "/placeholder.svg"}
                   alt={producto.nombre}
-                  className="w-full h-48 object-cover"
+                  className="min-w-full min-h-96 max-h-96 object-cover"
                 />
                 <div className="p-6">
                   <h3 className="text-xl font-semibold text-gray-800 mb-2">{producto.nombre}</h3>
@@ -185,6 +213,11 @@ export default function Inicio() {
           </div>
         </div>
       </section>
+
+
+
+
+      {/* NUESTRA HISTORIA */}
 
       {/* Sobre Nosotros */}
       <section className="py-16 px-4 bg-gray-50">
@@ -221,17 +254,23 @@ export default function Inicio() {
               </div>
             </div>
 
-            <div className="relative">
-              <img
-                src="/placeholder.svg?height=400&width=400"
-                alt="Nuestra repostería"
-                className="rounded-lg shadow-lg w-full"
-              />
-            </div>
+             <div className="relative">
+  <video
+    ref={videoRef}
+    className="rounded-lg shadow-lg w-full"
+    muted
+    playsInline
+    preload="none"
+    src="/videos/nuestra-reposteria.mp4"
+    controls
+  />
+</div>
           </div>
         </div>
       </section>
 
+
+            {/* OPINION DE CLIENTES */}
       {/* Testimonios */}
       <section className="py-16 px-4 bg-white">
         <div className="max-w-6xl mx-auto">
@@ -253,6 +292,10 @@ export default function Inicio() {
         </div>
       </section>
 
+
+
+
+            {/* FINAL */}
       {/* Llamada a la Acción Final */}
       <section className="py-16 px-4 bg-pink-600 text-white">
         <div className="max-w-4xl mx-auto text-center">
