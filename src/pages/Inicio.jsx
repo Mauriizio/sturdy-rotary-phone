@@ -52,12 +52,22 @@ export default function Inicio() {
 
   return (
     <div className="min-h-screen">
+
+
       {/* Ajustes responsivos de imagen y contenido */}
 
 <section
   className="
     relative
-    min-h-screen
+
+    min-h-[80vh]
+    sm: min-h-[90vh]
+    md: min-h-[80vh]
+    lg: min-h-[70vh]
+    xl: min-h-[80vh]
+    2xl:min-h-[95vh]
+
+
     py-20 px-4
     overflow-hidden
     flex items-center justify-center
@@ -69,9 +79,22 @@ export default function Inicio() {
       absolute inset-0
       bg-[url('/fondomailyn.png')]
       bg-no-repeat
-      bg-[length:140%] sm:bg-[length:auto]
-      bg-left sm:bg-center
-      sm:bg-[position:center_-600px]
+
+
+      bg-[length:140%] 
+      sm:bg-[length:80%]
+      md:bg-[length:90%]
+      lg:bg-[length:65%]
+      xl:bg-[length:50%]
+      2xl:bg-[length:50%]
+
+
+      bg-bottom 
+      
+      sm:bg-center
+      sm:bg-[position:center-600px]
+
+      
       z-10
       transition-all duration-300
     "
@@ -86,7 +109,7 @@ export default function Inicio() {
     "
   ></div>
 
-  <div className="relative z-20 w-full max-w-4xl flex flex-col items-center text-center gap-6 sm:gap-8">
+  <div className="relative z-20 w-full max-w-4xl flex flex-col items-center text-center gap-12 sm:gap-8">
     <h1 className="text-4xl sm:text-5xl font-bold text-gray-800 max-w-md sm:max-w-none mx-auto">
       <span className="text-pink-600">Dulces </span>
       <span className="text-pink-600">Secretos</span>
@@ -97,7 +120,7 @@ export default function Inicio() {
     </p>
 
     {/* Botones de Llamada a la Acción */}
-    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-40 sm:mt-12 md:mt-20 ">
       <Link
         to="/productos"
         className="bg-pink-600 hover:bg-pink-700 text-white px-8 py-4 rounded-full text-lg font-semibold transition-colors duration-300 flex items-center gap-2 shadow-lg"
