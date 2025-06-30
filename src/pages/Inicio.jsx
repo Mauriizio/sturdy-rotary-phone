@@ -52,6 +52,24 @@ export default function Inicio() {
       precio: "$38.000",
       imagen: "/public/Tortas/tresleches1.png",
     },
+    {
+      nombre: "Crema Chantilly",
+      descripcion: "Torta de Crema Chantilly Paw Patrol ",
+      precio: "$48.000",
+      imagen: "/public/Tortas/chantilly1.png",
+    },
+    {
+      nombre: "Fondant",
+      descripcion: "Torta Cubierta de Fondant Happy Birthday Queen",
+      precio: "$38.000",
+      imagen: "/public/Tortas/fondant1.jpg",
+    },
+    {
+      nombre: "Piña Volteada",
+      descripcion: "Torta de Piña Volteada",
+      precio: "$38.000",
+      imagen: "/public/Tortas/piña1.png",
+    },
   ]
 
   const testimonios = [
@@ -175,7 +193,8 @@ export default function Inicio() {
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">Nuestros Productos Destacados</h2>
 
-          <div className="grid md:grid-cols-3 gap-4">
+          <div className="
+ grid md:grid-cols-3 gap-4 ">
             {productosDestacados.map((producto, index) => (
               <div
                 key={index}
@@ -220,7 +239,7 @@ export default function Inicio() {
       {/* NUESTRA HISTORIA */}
 
       {/* Sobre Nosotros */}
-      <section className="py-16 px-4 bg-gray-50">
+      <section className="py-16 px-4  bg-[url('/public/fondoweb2.jpg')] bg-cover bg-center  bg-gray-50">
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -257,7 +276,7 @@ export default function Inicio() {
              <div className="relative">
   <video
     ref={videoRef}
-    className="rounded-lg shadow-lg w-full"
+    className="rounded-lg shadow-lg w-full max-h-96"
     muted
     playsInline
     preload="none"
@@ -272,7 +291,7 @@ export default function Inicio() {
 
             {/* OPINION DE CLIENTES */}
       {/* Testimonios */}
-      <section className="py-16 px-4 bg-white">
+      <section className="py-16 px-4 bg-[url('/public/fondoweb2.jpg')] bg-contain bg-top  bg-white">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">Lo que Dicen Nuestros Clientes</h2>
 
