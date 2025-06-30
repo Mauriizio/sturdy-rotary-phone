@@ -243,7 +243,7 @@ export default function Inicio() {
         <div className="max-w-6xl mx-auto">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-gray-800 mb-6">Nuestra Historia</h2>
+              <h2 className="text-4xl font-bold text-gray-800 mb-6 text-center">Nuestra Historia</h2>
               <p className="text-lg text-gray-600 mb-6">
                 En Dulces Secretos, cada postre cuenta una historia de pasión y dedicación. Desde hace más de 10 años,
                 hemos estado endulzando los momentos especiales de nuestros clientes con recetas tradicionales y

@@ -24,6 +24,7 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
   const categorias = [
     { id: "todas", nombre: "Todas", emoji: "🍰" },
     { id: "tradicional", nombre: "Tradicional", emoji: "🎂" },
+    { id: "infantil", nombre: "Infantil", emoji: "🎈" },
     { id: "fondant", nombre: "Fondant", emoji: "🎨" },
     { id: "buttercream", nombre: "Buttercream", emoji: "🌸" },
     { id: "chocolate", nombre: "Chocolate", emoji: "🍫" },
@@ -35,53 +36,53 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
     // Tortas Tradicionales
     {
       id: 1,
-      nombre: "Torta de Vainilla Clásica",
+      nombre: "Torta Imposible",
       categoria: "tradicional",
-      descripcion: "Torta esponjosa de vainilla con crema chantilly y fresas frescas",
-      imagen: "/placeholder.svg?height=300&width=300",
+      descripcion: "Torta Imposible Quesillo-Biscocho",
+      imagen: "/public/Tortas/quesillo1.jpg",
       tags: ["Cumpleaños", "Clásica", "Fresas"],
     },
     {
       id: 2,
       nombre: "Torta Tres Leches",
       categoria: "tradicional",
-      descripcion: "Deliciosa torta empapada en tres leches con canela",
-      imagen: "/placeholder.svg?height=300&width=300",
+      descripcion: "Deliciosa torta empapada en tres leches con decoracion",
+      imagen: "/public/Tortas/tresleches2.jpg",
       tags: ["Tres Leches", "Canela", "Tradicional"],
     },
     {
       id: 3,
-      nombre: "Torta de Zanahoria",
+      nombre: "Torta de Quesillo",
       categoria: "tradicional",
-      descripcion: "Torta húmeda de zanahoria con nueces y cream cheese",
-      imagen: "/placeholder.svg?height=300&width=300",
-      tags: ["Zanahoria", "Nueces", "Cream Cheese"],
+      descripcion: "Postre Quesillo Tradicional",
+      imagen: "/public/Tortas/quesillo2.jpg",
+      tags: ["Quesillo", "Tradicional", "Cream Cheese"],
     },
 
-    // Tortas Fondant
+    // Tortas Infantil
     {
       id: 4,
-      nombre: "Torta Princesa",
-      categoria: "fondant",
-      descripcion: "Torta temática de princesa con fondant rosa y decoraciones doradas",
-      imagen: "/placeholder.svg?height=300&width=300",
-      tags: ["Princesa", "Rosa", "Infantil"],
+      nombre: "Torta Paw Patrol Chantilly",
+      categoria: "infantil",
+      descripcion: "Torta temática Paw Patrol Cubierta de Chantilly",
+      imagen: "/public/Tortas/infantil3.jpg",
+      tags: ["Paw Patrol", "Chantilly", "Infantil"],
     },
     {
       id: 5,
-      nombre: "Torta Superhéroes",
-      categoria: "fondant",
-      descripcion: "Torta de superhéroes con figuras en fondant y colores vibrantes",
-      imagen: "/placeholder.svg?height=300&width=300",
-      tags: ["Superhéroes", "Infantil", "Colorida"],
+      nombre: "Torta Dragon Ball Chantilly",
+      categoria: "infantil",
+      descripcion: "Torta de Dragon Ball Chantilly",
+      imagen: "/public/Tortas/infantil1.jpg",
+      tags: ["Superhéroes", "DragonBall", "Infantil"],
     },
     {
       id: 6,
-      nombre: "Torta de Boda Elegante",
-      categoria: "fondant",
-      descripcion: "Torta de tres pisos con fondant blanco y flores de azúcar",
-      imagen: "/placeholder.svg?height=300&width=300",
-      tags: ["Boda", "Elegante", "Flores"],
+      nombre: "Torta de One Piece Chantilly",
+      categoria: "infantil",
+      descripcion: "Torta de Chantilly Tematica One Piece",
+      imagen: "/public/Tortas/infantil2.jpg",
+      tags: ["Chantilly", "Infantil", "One Piece"],
     },
 
     // Tortas Buttercream
@@ -170,9 +171,36 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
       tags: ["Brownies", "Nueces", "Gourmet"],
     },
 
-    // Helados
+// Tortas Fondant
     {
       id: 17,
+      nombre: "Torta Princesa",
+      categoria: "fondant",
+      descripcion: "Torta temática de princesa con fondant rosa y decoraciones doradas",
+      imagen: "/placeholder.svg?height=300&width=300",
+      tags: ["Princesa", "Rosa", "Infantil"],
+    },
+    {
+      id: 18,
+      nombre: "Torta Superhéroes",
+      categoria: "fondant",
+      descripcion: "Torta de superhéroes con figuras en fondant y colores vibrantes",
+      imagen: "/placeholder.svg?height=300&width=300",
+      tags: ["Superhéroes", "Infantil", "Colorida"],
+    },
+    {
+      id: 19,
+      nombre: "Torta de Boda Elegante",
+      categoria: "fondant",
+      descripcion: "Torta de tres pisos con fondant blanco y flores de azúcar",
+      imagen: "/placeholder.svg?height=300&width=300",
+      tags: ["Boda", "Elegante", "Flores"],
+    },
+
+
+    // Helados
+    {
+      id: 20,
       nombre: "Tetis de Chocolate",
       categoria: "helados",
       descripcion: "Tradicionales tetis venezolanas de chocolate cremoso",
@@ -180,7 +208,7 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
       tags: ["Tetis", "Chocolate", "Venezolano"],
     },
     {
-      id: 18,
+      id: 21,
       nombre: "Tetis de Coco",
       categoria: "helados",
       descripcion: "Refrescantes tetis de coco con trozos de coco natural",
@@ -188,7 +216,7 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
       tags: ["Tetis", "Coco", "Refrescante"],
     },
     {
-      id: 19,
+      id: 22,
       nombre: "Tetis de Fresa",
       categoria: "helados",
       descripcion: "Dulces tetis de fresa con fresas naturales",
@@ -196,7 +224,7 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
       tags: ["Tetis", "Fresa", "Natural"],
     },
     {
-      id: 20,
+      id: 23,
       nombre: "Helados Artesanales",
       categoria: "helados",
       descripcion: "Variedad de helados artesanales en sabores únicos",
