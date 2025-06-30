@@ -30,6 +30,7 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
     { id: "chocolate", nombre: "Chocolate", emoji: "🍫" },
     { id: "postres", nombre: "Postres", emoji: "🧁" },
     { id: "helados", nombre: "Helados", emoji: "🍦" },
+    { id: "chantilly", nombre: "Chantilly", emoji: "🎉" },
   ]
 
   const productos = [
@@ -62,19 +63,19 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
     // Tortas Infantil
     {
       id: 4,
-      nombre: "Torta Paw Patrol Chantilly",
+      nombre: "Torta Paw Patrol",
       categoria: "infantil",
-      descripcion: "Torta temática Paw Patrol Cubierta de Chantilly",
+      descripcion: "Torta temática Paw Patrol",
       imagen: "/public/Tortas/infantil3.jpg",
       tags: ["Paw Patrol", "Chantilly", "Infantil"],
     },
     {
       id: 5,
-      nombre: "Torta Dragon Ball Chantilly",
+      nombre: "Torta Dragon Ball",
       categoria: "infantil",
       descripcion: "Torta de Dragon Ball Chantilly",
       imagen: "/public/Tortas/infantil1.jpg",
-      tags: ["Superhéroes", "DragonBall", "Infantil"],
+      tags: [ "DragonBall", "Infantil"],
     },
     {
       id: 6,
@@ -84,6 +85,51 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
       imagen: "/public/Tortas/infantil2.jpg",
       tags: ["Chantilly", "Infantil", "One Piece"],
     },
+    {
+      id: 24,
+      nombre: "Torta Granja de Zenon",
+      categoria: "infantil",
+      descripcion: "Torta Granja de Zenon Chantilly",
+      imagen: "/public/Tortas/infantil4.jpg",
+      tags: ["Chantilly", "Infantil", "Granja Zenon"],
+    },
+
+     {
+      id: 25,
+      nombre: "Torta 44 Cats",
+      categoria: "infantil",
+      descripcion: "Torta diseño 44 Cats",
+      imagen: "/public/Tortas/infantil5.jpg",
+      tags: ["Chantilly", "Infantil", "44 Cats"],
+    },
+
+    {
+      id: 26,
+      nombre: "Torta Stranger Things",
+      categoria: "infantil",
+      descripcion: "Torta diseño Stranger Things",
+      imagen: "/public/Tortas/infantil7.jpg",
+      tags: [ "Infantil", "Stranger Things"],
+    },
+
+    {
+      id: 27,
+      nombre: "Torta Lol Surprise",
+      categoria: "infantil",
+      descripcion: "Torta diseño Lol Surprise",
+      imagen: "/public/Tortas/infantil9.jpg",
+      tags: ["Fondant", "Infantil", "Lol Surprise"],
+    },
+
+    {
+      id: 28,
+      nombre: "Torta Pokemon Fondant",
+      categoria: "infantil",
+      descripcion: "Torta diseño Pokemon",
+      imagen: "/public/Tortas/infantil10.jpg",
+      tags: [ "Infantil", "Pokemon"],
+    },
+    
 
     // Tortas Buttercream
     {
@@ -231,6 +277,7 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
       imagen: "/placeholder.svg?height=300&width=300",
       tags: ["Artesanal", "Variedad", "Único"],
     },
+    
   ]
 
   const productosFiltrados =
@@ -255,31 +302,32 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
       </section>
 
       {/* Filtros de Categorías */}
-      <section className="py-8 px-4 bg-white shadow-sm sticky top-0 z-10">
-        <div className="max-w-6xl mx-auto">
-          <div className="flex items-center gap-4 mb-4">
-            <Filter className="text-gray-600" size={20} />
-            <h3 className="text-lg font-semibold text-gray-800">Filtrar por categoría:</h3>
-          </div>
+<section className="py-3 px-4 bg-white shadow-sm sticky top-0 z-10">
+  <div className="max-w-6xl mx-auto">
+    <div className="flex items-center gap-3 mb-3">
+      <Filter className="text-gray-600" size={18} />
+      <h3 className="text-base font-semibold text-gray-800">Filtrar por categoría:</h3>
+    </div>
 
-          <div className="flex flex-wrap gap-3">
-            {categorias.map((categoria) => (
-              <button
-                key={categoria.id}
-                onClick={() => setCategoriaActiva(categoria.id)}
-                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 flex items-center gap-2 ${
-                  categoriaActiva === categoria.id
-                    ? "bg-pink-600 text-white shadow-lg"
-                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
-              >
-                <span>{categoria.emoji}</span>
-                <span>{categoria.nombre}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
+    {/* carrusel horizontal, texto reducido en móvil */}
+    <div className="flex space-x-2 overflow-x-auto no-scrollbar pb-1">
+      {categorias.map((categoria) => (
+        <button
+          key={categoria.id}
+          onClick={() => setCategoriaActiva(categoria.id)}
+          className={`flex-shrink-0 px-3 py-1 rounded-full font-medium transition-all duration-200 whitespace-nowrap ${
+            categoriaActiva === categoria.id
+              ? "bg-pink-600 text-white shadow"
+              : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+          } text-lg`}
+        >
+          {categoria.emoji} {categoria.nombre}
+        </button>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* Galería de Productos */}
       <section className="py-16 px-4">
@@ -517,7 +565,7 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
       {/* Modal de Producto (opcional) */}
       {productoSeleccionado && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="bg-white rounded-xl max-w-2xl w-full max-h-screen overflow-hidden">
             <div className="p-6">
               <div className="flex justify-between items-start mb-4">
                 <h3 className="text-2xl font-bold text-gray-800">{productoSeleccionado.nombre}</h3>
@@ -532,7 +580,7 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
               <img
                 src={productoSeleccionado.imagen || "/placeholder.svg"}
                 alt={productoSeleccionado.nombre}
-                className="w-full h-64 object-cover rounded-lg mb-4"
+                className="w-full object-contain max-h-[60vh] rounded-lg mb-4"
               />
 
               <p className="text-gray-600 mb-4">{productoSeleccionado.descripcion}</p>
