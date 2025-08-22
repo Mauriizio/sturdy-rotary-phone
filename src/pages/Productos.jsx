@@ -23,20 +23,80 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
 
   const categorias = [
     { id: "todas", nombre: "Todas", emoji: "🍰" },
-    { id: "tradicional", nombre: "Tradicional", emoji: "🎂" },
+    { id: "caballeros", nombre: "Caballeros", emoji: "🎩" },
     { id: "infantil", nombre: "Infantil", emoji: "🎈" },
+    { id: "tradicional", nombre: "Tradicional", emoji: "🎂" },
+    { id: "chocolate", nombre: "Chocolate", emoji: "🍫" },
     { id: "fondant", nombre: "Fondant", emoji: "🎨" },
     { id: "buttercream", nombre: "Buttercream", emoji: "🌸" },
-    { id: "chocolate", nombre: "Chocolate", emoji: "🍫" },
+    
+    { id: "chantilly", nombre: "Chantilly", emoji: "🎉" },    
     { id: "postres", nombre: "Postres", emoji: "🧁" },
     { id: "helados", nombre: "Helados", emoji: "🍦" },
-    { id: "chantilly", nombre: "Chantilly", emoji: "🎉" },
-  ]
+      ]
 
   const productos = [
-    // Tortas Tradicionales
+
+    // Tortas para Caballero
     {
       id: 1,
+      nombre: "Torta de Cumpleaños Cervecera",
+      categoria: "caballeros",
+      descripcion: "Torta con Cerveza Corona y Chocolates para Caballero",
+      imagen: "/Tortas/caballero1.jpg",
+      tags: ["Cumpleaños", "Cervezas", "Caballero"],
+    },
+
+    {
+      id: 2,
+      nombre: "Torta de Cumpleaños Adulto Butrercream",
+      categoria: "caballeros",
+      descripcion: "Torta con emote cervecero para Caballero",
+      imagen: "/Tortas/caballero2.jpg",
+      tags: ["Buttercream", "Cervezas", "Caballero"],
+    },
+    
+    {
+      id: 3,
+      nombre: "Torta de Cumpleaños para Caballero",
+      categoria: "caballeros",
+      descripcion: "Torta con emote para Caballero",
+      imagen: "/Tortas/caballero3.jpg",
+      tags: ["Buttercream", "Caballero"],
+    },
+
+    {
+      id: 4,
+      nombre: "Torta Pablo Escobar y Dolares",
+      categoria: "caballeros",
+      descripcion: "Torta de Pablo Escobar y Dolares en Fondant",
+      imagen: "/Tortas/caballero4.jpg",
+      tags: ["Pablo Escobar", "Dolares", "Caballero"],
+    },
+
+    {
+      id: 5,
+      nombre: "Torta de Chocolate y Whiskey Jack Daniels",
+      categoria: "caballeros",
+      descripcion: "Torta de cumpleaños de Chocolate y Whiskey Jack Daniels",
+      imagen: "/Tortas/caballero5.jpg",
+      tags: ["Whiskey", "Jack Daniels", "Caballero"],
+    },
+
+    {
+      id: 6,
+      nombre: "Torta Whiskey Jack Daniels",
+      categoria: "caballeros",
+      descripcion: "Torta de Whiskey Jack Daniels",
+      imagen: "/Tortas/caballero6.jpg",
+      tags: ["Whiskey", "Jack Daniels", "Caballero"],
+    },
+    
+
+
+    // Tortas Tradicionales
+    {
+      id: 7,
       nombre: "Torta Imposible",
       categoria: "tradicional",
       descripcion: "Torta Imposible Quesillo-Biscocho",
@@ -44,7 +104,7 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
       tags: ["Cumpleaños", "Clásica", "Fresas"],
     },
     {
-      id: 2,
+      id: 8,
       nombre: "Torta Tres Leches",
       categoria: "tradicional",
       descripcion: "Deliciosa torta empapada en tres leches",
@@ -52,7 +112,7 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
       tags: ["Tres Leches", "Canela", "Tradicional"],
     },
     {
-      id: 3,
+      id: 9,
       nombre: "Torta de Quesillo",
       categoria: "tradicional",
       descripcion: "Postre Quesillo Tradicional",
@@ -62,31 +122,148 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
 
     // Tortas Infantil
     {
-      id: 4,
+      id: 10,
       nombre: "Torta Paw Patrol",
       categoria: "infantil",
       descripcion: "Torta temática Paw Patrol",
       imagen: "/Tortas/infantil3.jpg",
-      tags: ["Paw Patrol", "Chantilly", "Infantil"],
+      tags: ["Plin Plin", "Infantil"],
     },
     {
-      id: 5,
+      id: 11,
+      nombre: "Torta Payasito Plin Plin",
+      categoria: "infantil",
+      descripcion: "Torta temática Payasito Plin Plin",
+      imagen: "/Tortas/infantil11.jpg",
+      tags: ["Plin Plin", "Infantil"],
+    },
+
+    {
+      id: 12,
       nombre: "Torta Dragon Ball",
+      categoria: "infantil",
+      descripcion: "Torta de Dragon Ball Chocolate",
+      imagen: "/Tortas/infantil12.jpg",
+      tags: ["Dragon Ball", "Chocolate", "Infantil"],
+    },
+
+    {
+      id: 13,
+      nombre: "Torta Dragon Ball 2",
       categoria: "infantil",
       descripcion: "Torta de Dragon Ball Chantilly",
       imagen: "/Tortas/infantil1.jpg",
       tags: [ "DragonBall", "Infantil"],
     },
+
     {
-      id: 6,
+      id: 14,
+      nombre: "Torta Cumpleaños Infantil",
+      categoria: "infantil",
+      descripcion: "Torta de niña Chantilly",
+      imagen: "/Tortas/infantil13.jpg",
+      tags: [ "Cumpleaños", "Infantil"],
+    },
+
+    {
+      id: 15,
+      nombre: "Torta niña Minnie Mouse",
+      categoria: "infantil",
+      descripcion: "Torta de niña Minni Mouse",
+      imagen: "/Tortas/infantil14.jpg",
+      tags: [ "Cumpleaños", "Infantil"],
+    },
+
+    {
+      id: 16,
+      nombre: "Torta infantil Buttercream",
+      categoria: "infantil",
+      descripcion: "Torta de cumpleaños infantil",
+      imagen: "/Tortas/infantil15.jpg",
+      tags: [ "Cumpleaños", "Infantil"],
+    },
+
+    {
+      id: 17,
+      nombre: "Torta infantil Leo el Camion",
+      categoria: "infantil",
+      descripcion: "Torta de cumpleaños infantil de Leo el Camion",
+      imagen: "/Tortas/infantil16.jpg",
+      tags: [ "Cumpleaños", "Leo el Camion", "Infantil"],
+    },
+
+    {
+      id: 18,
+      nombre: "Torta infantil Hakuna Matata",
+      categoria: "infantil",
+      descripcion: "Torta infantil Hakuna Matata",
+      imagen: "/Tortas/infantil17.jpg",
+      tags: [ "Cumpleaños", "Hakuna Matata", "Infantil"],
+    },
+
+    {
+      id: 19,
+      nombre: "Torta infantil de Futbol",
+      categoria: "infantil",
+      descripcion: "Torta infantil tematica Futbol",
+      imagen: "/Tortas/infantil18.jpg",
+      tags: [ "Cumpleaños", "Futbol", "Infantil"],
+    },
+
+    {
+      id: 20,
+      nombre: "Torta de Masha y el Oso",
+      categoria: "infantil",
+      descripcion: "Torta infantil tematica Masha y el Oso",
+      imagen: "/Tortas/infantil19.jpg",
+      tags: [ "Cumpleaños", "Masha y el Oso", "Infantil"],
+    },
+
+     {
+      id: 21,
+      nombre: "Torta de Futbol 2",
+      categoria: "infantil",
+      descripcion: "Torta infantil tematica de Futbol",
+      imagen: "/Tortas/infantil20.jpg",
+      tags: [ "Cumpleaños", "Futbol", "Infantil"],
+    },
+
+    {
+      id: 22,
       nombre: "Torta de One Piece Chantilly",
       categoria: "infantil",
       descripcion: "Torta de Chantilly Tematica One Piece",
       imagen: "/Tortas/infantil2.jpg",
       tags: ["Chantilly", "Infantil", "One Piece"],
     },
+
+    {
+      id: 23,
+      nombre: "Torta de Gato con Botas",
+      categoria: "infantil",
+      descripcion: "Torta del Gato con botas",
+      imagen: "/Tortas/infantil21.jpg",
+      tags: ["Chantilly", "Infantil", "Gato con Botas"],
+    },
+
     {
       id: 24,
+      nombre: "Torta de Stitch",
+      categoria: "infantil",
+      descripcion: "Torta infantil de Stitch",
+      imagen: "/Tortas/infantil22.jpg",
+      tags: ["Infantil", "Stitch"],
+    },
+    {
+      id: 25,
+      nombre: "Torta de Corazon Hello Kitty",
+      categoria: "infantil",
+      descripcion: "Torta infantil de Hello Kitty",
+      imagen: "/Tortas/infantil23.jpg",
+      tags: ["Infantil", "Hello Kitty"],
+    },
+    {
+      id: 26,
       nombre: "Torta Granja de Zenon",
       categoria: "infantil",
       descripcion: "Torta Granja de Zenon Chantilly",
@@ -95,7 +272,7 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
     },
 
      {
-      id: 25,
+      id: 27,
       nombre: "Torta 44 Cats",
       categoria: "infantil",
       descripcion: "Torta diseño 44 Cats",
@@ -104,7 +281,7 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
     },
 
     {
-      id: 26,
+      id: 28,
       nombre: "Torta Stranger Things",
       categoria: "infantil",
       descripcion: "Torta diseño Stranger Things",
@@ -113,7 +290,7 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
     },
 
     {
-      id: 27,
+      id: 29,
       nombre: "Torta Lol Surprise",
       categoria: "infantil",
       descripcion: "Torta diseño Lol Surprise",
@@ -122,9 +299,9 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
     },
 
     {
-      id: 28,
+      id: 30,
       nombre: "Torta Pokemon Fondant",
-      categoria: "infantil",
+      categoria: ["infantil", "fondant"],
       descripcion: "Torta diseño Pokemon",
       imagen: "/Tortas/infantil10.jpg",
       tags: [ "Infantil", "Pokemon"],
@@ -133,7 +310,7 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
 
     // Tortas Buttercream
     {
-      id: 7,
+      id: 31,
       nombre: "Torta Feliz Aniversario",
       categoria: "buttercream",
       descripcion: "Torta Buttercream Aniversario",
@@ -141,7 +318,7 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
       tags: ["Buttercream", "Aniversario"],
     },
     {
-      id: 8,
+      id: 32,
       nombre: "Torta Corazon Buttercream",
       categoria: "buttercream",
       descripcion: "Torta Corazon Buttercream",
@@ -149,7 +326,7 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
       tags: ["Buttercream", "Corazon"],
     },
     {
-      id: 9,
+      id: 33,
       nombre: "Pucca Buttercream",
       categoria: "buttercream",
       descripcion: "Torta Pucca Buttercream deliciosa",
@@ -159,7 +336,7 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
 
     // Chocolates
     {
-      id: 10,
+      id: 34,
       nombre: "Torta Chocolate Cumpleaños",
       categoria: "chocolate",
       descripcion: "Torta Garnache Chocolate  Cumpleaños",
@@ -167,7 +344,7 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
       tags: ["Garnache", "Chocolate", "Cumpleaños"],
     },
      {
-      id: 11,
+      id: 35,
       nombre: "Torta Chocolate Oreo",
       categoria: "chocolate",
       descripcion: "Torta de Chocolate  con galleta oreo",
@@ -175,107 +352,140 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
       tags: ["Oreo", "Chocolate"],
     },
     {
-      id: 12,
-      nombre: "Torta Ferrero Rocher",
+      id: 36,
+      nombre: "Torta Harry Potter Chocolate",
       categoria: "chocolate",
-      descripcion: "Torta inspirada en Ferrero Rocher con avellanas y chocolate",
-      imagen: "/placeholder.svg?height=300&width=300",
-      tags: ["Ferrero", "Avellanas", "Gourmet"],
+      descripcion: "Torta inspirada en Harry Potter garnache de chocolate",
+      imagen: "/Tortas/chocolate3.png",
+      tags: ["Harry Potter", "Chocolate"],
     },
+
+
+
+    //Chantilly
+
+     {
+      id: 37,
+      nombre: "Torta de Chantilly Paw Patrol",
+      categoria: "chantilly",
+      descripcion: "Torta inspirada en Paw Patrol de Chantilly",
+      imagen: "/Tortas/chantilly1.png",
+      tags: ["Paw Patrol", "Chantilly"],
+    },
+    {
+      id: 38,
+      nombre: "Torta de Chantilly Tropical",
+      categoria: "chantilly",
+      descripcion: "Torta tematica tropical de Chantilly",
+      imagen: "/Tortas/chantilly2.jpg",
+      tags: ["Tropical", "Chantilly"],
+    },
+
+    // Tortas Fondant
+    {
+      id: 39,
+      nombre: "Happy Birthday Princesa Fondant ",
+      categoria: "fondant",
+      descripcion: "Torta de cumpleaños con fondant, corona y decoraciones elegantes",
+      imagen: "/Tortas/fondant1.jpg",
+      tags: ["Princesa", "Cumpleaños", "Fondant"],
+    },
+    {
+      id: 40,
+      nombre: "Jordan Fondant ",
+      categoria: "fondant",
+      descripcion: "Torta de cumpleaños con fondant tematica de Jordan",
+      imagen: "/Tortas/fondant2.jpg",
+      tags: ["Jordan", "Cumpleaños", "Fondant"],
+    },
+
 
     // Postres
     {
-      id: 13,
-      nombre: "Cheesecake de Frutos Rojos",
+      id: 41,
+      nombre: "Marquesanas Variadas",
       categoria: "postres",
-      descripcion: "Cremoso cheesecake con salsa de frutos rojos",
-      imagen: "/placeholder.svg?height=300&width=300",
-      tags: ["Cheesecake", "Frutos Rojos", "Cremoso"],
+      descripcion: "Cremosas Marquesanas variadas con distintos sabores",
+      imagen: "/Tortas/postres.jpg",
+      tags: ["Marquesanas", "Cremosas"],
     },
     {
-      id: 14,
-      nombre: "Tiramisú Clásico",
+      id: 42,
+      nombre: "Arreglo de Brownies Gourmet",
       categoria: "postres",
-      descripcion: "Auténtico tiramisú italiano con café y mascarpone",
-      imagen: "/placeholder.svg?height=300&width=300",
-      tags: ["Tiramisú", "Café", "Italiano"],
+      descripcion: "Auténticas delicias de chocolate para compartir",
+      imagen: "/Tortas/postres2.jpg",
+      tags: ["Chocolate", "Postres"],
     },
     {
-      id: 15,
-      nombre: "Pavlova de Maracuyá",
+      id: 43,
+      nombre: "Bizcocho mas Bombones 27th ",
       categoria: "postres",
-      descripcion: "Delicada pavlova con crema y maracuyá fresco",
-      imagen: "/placeholder.svg?height=300&width=300",
-      tags: ["Pavlova", "Maracuyá", "Ligero"],
-    },
-    {
-      id: 16,
-      nombre: "Brownies Gourmet",
-      categoria: "postres",
-      descripcion: "Brownies húmedos con nueces y chocolate belga",
-      imagen: "/placeholder.svg?height=300&width=300",
-      tags: ["Brownies", "Nueces", "Gourmet"],
-    },
-
-// Tortas Fondant
-    {
-      id: 17,
-      nombre: "Torta Princesa",
-      categoria: "fondant",
-      descripcion: "Torta temática de princesa con fondant rosa y decoraciones doradas",
-      imagen: "/placeholder.svg?height=300&width=300",
-      tags: ["Princesa", "Rosa", "Infantil"],
-    },
-    {
-      id: 18,
-      nombre: "Torta Superhéroes",
-      categoria: "fondant",
-      descripcion: "Torta de superhéroes con figuras en fondant y colores vibrantes",
-      imagen: "/placeholder.svg?height=300&width=300",
-      tags: ["Superhéroes", "Infantil", "Colorida"],
-    },
-    {
-      id: 19,
-      nombre: "Torta de Boda Elegante",
-      categoria: "fondant",
-      descripcion: "Torta de tres pisos con fondant blanco y flores de azúcar",
-      imagen: "/placeholder.svg?height=300&width=300",
-      tags: ["Boda", "Elegante", "Flores"],
+      descripcion: "Delicado arreglo para cumpleaños de chocolate",
+      imagen: "/Tortas/postres3.jpg",
+      tags: ["Cumpleaños", "Postre", "Ligero"],
     },
 
 
+    
     // Helados
     {
-      id: 20,
-      nombre: "Tetis de Chocolate",
+      id: 44,
+      nombre: "Tetis Tradicionales Venezolanas",
       categoria: "helados",
-      descripcion: "Tradicionales tetis venezolanas de chocolate cremoso",
-      imagen: "/placeholder.svg?height=300&width=300",
-      tags: ["Tetis", "Chocolate", "Venezolano"],
+      descripcion: "Tradicionales tetis venezolanas de variados sabores",
+      imagen: "/Tortas/helados.jpg",
+      tags: ["Tetis", "Tradicional", "Venezolano"],
     },
     {
-      id: 21,
+      id: 45,
       nombre: "Tetis de Coco",
       categoria: "helados",
-      descripcion: "Refrescantes tetis de coco con trozos de coco natural",
-      imagen: "/placeholder.svg?height=300&width=300",
-      tags: ["Tetis", "Coco", "Refrescante"],
+      descripcion: "Tradicionales tetis venezolanas de Coco",
+      imagen: "/Tortas/helados1.jpg",
+      tags: ["Tetis", "Coco", "Venezolano"],
     },
     {
-      id: 22,
-      nombre: "Tetis de Fresa",
+      id: 46,
+      nombre: "Tetis de Galleta Maria",
       categoria: "helados",
-      descripcion: "Dulces tetis de fresa con fresas naturales",
-      imagen: "/placeholder.svg?height=300&width=300",
-      tags: ["Tetis", "Fresa", "Natural"],
+      descripcion: "Tradicionales tetis venezolanas de Galleta Maria",
+      imagen: "/Tortas/helados3.jpg",
+      tags: ["Tetis", "Galleta", "Venezolano"],
     },
     {
-      id: 23,
-      nombre: "Helados Artesanales",
+      id: 47,
+      nombre: "Tetis de Choco - Manjar",
       categoria: "helados",
-      descripcion: "Variedad de helados artesanales en sabores únicos",
-      imagen: "/placeholder.svg?height=300&width=300",
-      tags: ["Artesanal", "Variedad", "Único"],
+      descripcion: "Tradicionales tetis venezolanas de Chocolate y Manjar",
+      imagen: "/Tortas/helados4.jpg",
+      tags: ["Tetis", "Choco-Manjar", "Venezolano"],
+    },
+    {
+      id: 48,
+      nombre: "Tetis de Choco - Maní",
+      categoria: "helados",
+      descripcion: "Tradicionales tetis venezolanas de Chocolate y Maní",
+      imagen: "/Tortas/helados5.jpg",
+      tags: ["Tetis", "Choco-Maní", "Venezolano"],
+    },
+
+    {
+      id: 49,
+      nombre: "Tetis de Fresas",
+      categoria: "helados",
+      descripcion: "Tradicionales tetis venezolanas de Fresa",
+      imagen: "/Tortas/helados6.jpg",
+      tags: ["Tetis", "Fresa", "Venezolano"],
+    },
+
+    {
+      id: 50,
+      nombre: "Tetis de Ron con Pasas",
+      categoria: "helados",
+      descripcion: "Tradicionales tetis venezolanas de Ron con Pasas",
+      imagen: "/Tortas/helados7.jpg",
+      tags: ["Tetis", "Ron con Pasas", "Venezolano"],
     },
     
   ]
@@ -286,9 +496,9 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-pink-600 to-purple-600 text-white py-20 px-4">
+      <section className="bg-[url(/Tortas/bg-1.jpg)] bg-cover bg-[position] bg-bottom from-pink-600 to-purple-600 text-white py-20 px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">Nuestros Productos 🎂</h1>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">Nuestros Productos</h1>
           <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
             Descubre nuestro portafolio de creaciones únicas. Cada producto es personalizado según tus gustos, tamaño y
             ocasión especial.
