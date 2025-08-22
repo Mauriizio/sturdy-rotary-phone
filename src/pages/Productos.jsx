@@ -40,7 +40,7 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
       nombre: "Torta Imposible",
       categoria: "tradicional",
       descripcion: "Torta Imposible Quesillo-Biscocho",
-      imagen: "/public/Tortas/quesillo1.jpg",
+      imagen: "/Tortas/quesillo1.jpg",
       tags: ["Cumpleaños", "Clásica", "Fresas"],
     },
     {
@@ -48,7 +48,7 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
       nombre: "Torta Tres Leches",
       categoria: "tradicional",
       descripcion: "Deliciosa torta empapada en tres leches",
-      imagen: "/public/Tortas/tresleches2.jpg",
+      imagen: "/Tortas/tresleches2.jpg",
       tags: ["Tres Leches", "Canela", "Tradicional"],
     },
     {
@@ -56,7 +56,7 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
       nombre: "Torta de Quesillo",
       categoria: "tradicional",
       descripcion: "Postre Quesillo Tradicional",
-      imagen: "/public/Tortas/quesillo2.jpg",
+      imagen: "/Tortas/quesillo2.jpg",
       tags: ["Quesillo", "Tradicional", "Cream Cheese"],
     },
 
@@ -66,7 +66,7 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
       nombre: "Torta Paw Patrol",
       categoria: "infantil",
       descripcion: "Torta temática Paw Patrol",
-      imagen: "/public/Tortas/infantil3.jpg",
+      imagen: "/Tortas/infantil3.jpg",
       tags: ["Paw Patrol", "Chantilly", "Infantil"],
     },
     {
@@ -74,7 +74,7 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
       nombre: "Torta Dragon Ball",
       categoria: "infantil",
       descripcion: "Torta de Dragon Ball Chantilly",
-      imagen: "/public/Tortas/infantil1.jpg",
+      imagen: "/Tortas/infantil1.jpg",
       tags: [ "DragonBall", "Infantil"],
     },
     {
@@ -82,7 +82,7 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
       nombre: "Torta de One Piece Chantilly",
       categoria: "infantil",
       descripcion: "Torta de Chantilly Tematica One Piece",
-      imagen: "/public/Tortas/infantil2.jpg",
+      imagen: "/Tortas/infantil2.jpg",
       tags: ["Chantilly", "Infantil", "One Piece"],
     },
     {
@@ -90,7 +90,7 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
       nombre: "Torta Granja de Zenon",
       categoria: "infantil",
       descripcion: "Torta Granja de Zenon Chantilly",
-      imagen: "/public/Tortas/infantil4.jpg",
+      imagen: "/Tortas/infantil4.jpg",
       tags: ["Chantilly", "Infantil", "Granja Zenon"],
     },
 
@@ -99,7 +99,7 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
       nombre: "Torta 44 Cats",
       categoria: "infantil",
       descripcion: "Torta diseño 44 Cats",
-      imagen: "/public/Tortas/infantil5.jpg",
+      imagen: "/Tortas/infantil5.jpg",
       tags: ["Chantilly", "Infantil", "44 Cats"],
     },
 
@@ -108,7 +108,7 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
       nombre: "Torta Stranger Things",
       categoria: "infantil",
       descripcion: "Torta diseño Stranger Things",
-      imagen: "/public/Tortas/infantil7.jpg",
+      imagen: "/Tortas/infantil7.jpg",
       tags: [ "Infantil", "Stranger Things"],
     },
 
@@ -117,7 +117,7 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
       nombre: "Torta Lol Surprise",
       categoria: "infantil",
       descripcion: "Torta diseño Lol Surprise",
-      imagen: "/public/Tortas/infantil9.jpg",
+      imagen: "/Tortas/infantil9.jpg",
       tags: ["Fondant", "Infantil", "Lol Surprise"],
     },
 
@@ -126,7 +126,7 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
       nombre: "Torta Pokemon Fondant",
       categoria: "infantil",
       descripcion: "Torta diseño Pokemon",
-      imagen: "/public/Tortas/infantil10.jpg",
+      imagen: "/Tortas/infantil10.jpg",
       tags: [ "Infantil", "Pokemon"],
     },
     
@@ -137,7 +137,7 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
       nombre: "Torta Feliz Aniversario",
       categoria: "buttercream",
       descripcion: "Torta Buttercream Aniversario",
-      imagen: "/public/Tortas/aniversario1.jpg",
+      imagen: "/Tortas/aniversario1.jpg",
       tags: ["Buttercream", "Aniversario"],
     },
     {
@@ -145,7 +145,7 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
       nombre: "Torta Corazon Buttercream",
       categoria: "buttercream",
       descripcion: "Torta Corazon Buttercream",
-      imagen: "/public/Tortas/corazon1.jpg",
+      imagen: "/Tortas/corazon1.jpg",
       tags: ["Buttercream", "Corazon"],
     },
     {

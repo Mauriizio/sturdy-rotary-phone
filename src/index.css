@@ -2,7 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
-
 body {
   overflow-x: hidden;
+}
+
+/* --- SEO/UX pequeños ajustes globales --- */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+img, video {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }

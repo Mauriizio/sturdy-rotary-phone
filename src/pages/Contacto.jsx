@@ -1,5 +1,6 @@
 "use client"
 
+
 import { useState } from "react"
 import {
   Phone,
@@ -55,8 +56,10 @@ export default function Contacto() {
 ${formData.mensaje}
       `.trim()
 
-      const phoneNumber = "56935626296" // Reemplaza con el número real
+      const phoneNumber = "56935626296" 
+
       const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(mensaje)}`
+
       window.open(whatsappUrl, "_blank")
 
       setSubmitStatus("success")
