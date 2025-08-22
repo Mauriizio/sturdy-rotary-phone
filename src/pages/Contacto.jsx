@@ -16,7 +16,7 @@ import {
   Truck,
   CreditCard,
 } from "lucide-react";
-import { wa } from "../config";
+import { wa, WEB3FORMS_ACCESS_KEY, BUSINESS } from "../config";
 
 export default function Contacto() {
   // ---------- SEO (React 19 Document Metadata) ----------
@@ -57,19 +57,18 @@ export default function Contacto() {
     </>
   );
 
-  // ---------- Datos de contacto ----------
-  const EMAIL_TO = "dulcessecretos26@gmail.com";
-  const TELEFONO_VISIBLE = "+56 9 3562 6296";
-  const TELEFONO_E164 = "+56935626296";
-  const DIRECCION_TXT = "Cancagua con Gerónimo de Alderete, La Florida, Santiago";
+  // ---------- Derivados ----------
+  const EMAIL_TO = BUSINESS.email;
+  const TELEFONO_VISIBLE = BUSINESS.phoneDisplay;
+  const TELEFONO_E164 = BUSINESS.phoneE164;
+  const DIRECCION_TXT = BUSINESS.address;
+
   const MAPS_Q = encodeURIComponent("Cancagua con Geronimo de Alderete, La Florida, Santiago");
   const MAPS_EMBED = `https://www.google.com/maps?q=${MAPS_Q}&output=embed`;
   const MAPS_DIR = `https://www.google.com/maps/dir/?api=1&destination=${MAPS_Q}`;
 
   const IG_URL =
     "https://www.instagram.com/dulces_secretos.cl?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==";
-  // Nota: El link que nos diste como “facebook” es un redireccionamiento de Instagram a la web antigua (.cl).
-  // Lo dejamos tal cual para respetar tu fuente. Si luego tienes la página oficial de Facebook, la reemplazamos.
   const FB_URL =
     "https://l.instagram.com/?u=https%3A%2F%2Fdulcessecretos.cl%2F%3Ffbclid%3DPAZXh0bgNhZW0CMTEAAafLMmFf2kfm5e9Rg2Sb5i6vMbPi2hCDXpSlmqxaMrhWWfwJDMwjTSeOJr3SBw_aem_d6QdmQbQoShyVrqOBGl8WQ&e=AT3WsVYlZZIp0ueVv0vnyXOCV9hJ76vgeDocNFn2ShT9QgbbAwN_JwS1-_y79FdyjDQ4fgeXuMF2bkgkx7hyZ8vidONwoMEP5zPMtpQ";
 
@@ -80,9 +79,12 @@ export default function Contacto() {
     telefono: "",
     tipoConsulta: "",
     mensaje: "",
+    // honeypot anti-bots (debe permanecer vacío)
+    botcheck: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null); // "success" | "error" | null
+  const [submitMsg, setSubmitMsg] = useState("");
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -92,27 +94,40 @@ export default function Contacto() {
     }));
   };
 
-  // Envío por EMAIL sin backend (abre el cliente de correo del usuario)
-  const handleSubmit = (e) => {
+  // Envío con Web3Forms (sin backend)
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (isSubmitting) return;
+
+    setSubmitStatus(null);
+    setSubmitMsg("");
     setIsSubmitting(true);
 
-    // Validación mínima
+    // Validación mínima en cliente
+    const emailOk = /^\S+@\S+\.\S+$/.test(formData.email);
     if (
       !formData.nombre.trim() ||
-      !/^\S+@\S+\.\S+$/.test(formData.email) ||
+      !emailOk ||
       !formData.telefono.trim() ||
       !formData.tipoConsulta ||
       !formData.mensaje.trim()
     ) {
       setSubmitStatus("error");
+      setSubmitMsg("Revisa los campos obligatorios y que el email sea válido.");
       setIsSubmitting(false);
       return;
     }
 
-    const asunto = `Nueva consulta desde la web — ${formData.tipoConsulta}`;
-    const cuerpo = `
+    if (!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY === "REEMPLAZA_CON_TU_ACCESS_KEY") {
+      setSubmitStatus("error");
+      setSubmitMsg("Falta configurar el WEB3FORMS_ACCESS_KEY en src/config.js");
+      setIsSubmitting(false);
+      return;
+    }
+
+    // Construir payload para Web3Forms
+    const subject = `Nueva consulta — ${formData.tipoConsulta}`;
+    const message = `
 🍰 Nueva Consulta - Dulces Secretos
 
 👤 Nombre: ${formData.nombre}
@@ -124,25 +139,57 @@ export default function Contacto() {
 ${formData.mensaje}
     `.trim();
 
-    const mailto = `mailto:${EMAIL_TO}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(
-      cuerpo
-    )}`;
+    const payload = {
+      access_key: WEB3FORMS_ACCESS_KEY,
+      from_name: "Dulces Secretos (Web)",
+      subject,
+      // Web3Forms envía al correo asociado a la key.
+      // reply_to permite responder directamente al cliente.
+      reply_to: formData.email,
+      to: EMAIL_TO, // opcional: algunos planes permiten definirlo; si no, se usa el asociado a la key
+      // Campos visibles en el correo:
+      nombre: formData.nombre,
+      telefono: formData.telefono,
+      tipoConsulta: formData.tipoConsulta,
+      message, // cuerpo legible
+      // Anti-bots:
+      botcheck: formData.botcheck || "",
+    };
 
-    // Abrimos el cliente de correo del usuario
-    window.location.href = mailto;
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const json = await res.json();
 
-    setSubmitStatus("success");
-    setIsSubmitting(false);
-    setFormData({
-      nombre: "",
-      email: "",
-      telefono: "",
-      tipoConsulta: "",
-      mensaje: "",
-    });
-
-    // Ocultar aviso de éxito después de un rato
-    setTimeout(() => setSubmitStatus(null), 6000);
+      if (json.success) {
+        setSubmitStatus("success");
+        setSubmitMsg("¡Mensaje enviado! Te responderemos pronto a tu correo.");
+        setFormData({
+          nombre: "",
+          email: "",
+          telefono: "",
+          tipoConsulta: "",
+          mensaje: "",
+          botcheck: "",
+        });
+      } else {
+        setSubmitStatus("error");
+        setSubmitMsg(json.message || "No se pudo enviar el mensaje. Intenta nuevamente.");
+      }
+    } catch (err) {
+      setSubmitStatus("error");
+      setSubmitMsg("Error de red al enviar el formulario. Intenta nuevamente.");
+    } finally {
+      setIsSubmitting(false);
+      // Ocultar mensaje después de unos segundos
+      setTimeout(() => {
+        setSubmitStatus(null);
+        setSubmitMsg("");
+      }, 7000);
+    }
   };
 
   const handleWhatsAppDirect = () => {
@@ -320,25 +367,35 @@ ${formData.mensaje}
                 </div>
               </div>
 
-              {/* Formulario de Contacto */}
+              {/* Formulario de Contacto (Web3Forms) */}
               <div className="bg-white p-8 rounded-xl shadow-lg">
                 <h2 className="text-3xl font-bold text-gray-800 mb-6">Envíanos un Mensaje</h2>
 
-                {submitStatus === "success" && (
-                  <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg flex items-center gap-2">
-                    <CheckCircle size={20} />
-                    <span>
-                      Abrimos tu cliente de correo con el mensaje prellenado. Si no se abrió, verifica el bloqueador o usa el botón de WhatsApp.
-                    </span>
-                  </div>
-                )}
-                {submitStatus === "error" && (
-                  <div className="mb-6 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
-                    Revisa que todos los campos obligatorios estén completos y el email sea válido.
+                {submitStatus && (
+                  <div
+                    className={`mb-6 p-4 rounded-lg flex items-start gap-3 ${
+                      submitStatus === "success"
+                        ? "bg-green-100 border border-green-400 text-green-700"
+                        : "bg-red-100 border border-red-400 text-red-700"
+                    }`}
+                  >
+                    {submitStatus === "success" ? <CheckCircle size={20} /> : <AlertCircle size={20} />}
+                    <span>{submitMsg}</span>
                   </div>
                 )}
 
                 <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+                  {/* honeypot anti-bots (oculto) */}
+                  <input
+                    type="checkbox"
+                    name="botcheck"
+                    value={formData.botcheck}
+                    onChange={handleInputChange}
+                    className="hidden"
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="nombre" className="block text-sm font-medium text-gray-700 mb-2">
@@ -405,7 +462,15 @@ ${formData.mensaje}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                     >
                       <option value="">Selecciona una opción</option>
-                      {tiposConsulta.map((tipo, index) => (
+                      {[
+                        "Pedido personalizado",
+                        "Información de productos",
+                        "Cursos de repostería",
+                        "Precios y cotizaciones",
+                        "Eventos y celebraciones",
+                        "Reclamos o sugerencias",
+                        "Otro",
+                      ].map((tipo, index) => (
                         <option key={index} value={tipo}>
                           {tipo}
                         </option>
@@ -501,7 +566,28 @@ ${formData.mensaje}
             </h2>
 
             <div className="space-y-6">
-              {faqItems.map((item, index) => (
+              {[
+                {
+                  pregunta: "¿Con cuánto tiempo debo hacer mi pedido?",
+                  respuesta:
+                    "Para pedidos personalizados recomendamos mínimo 48 horas. Para productos del catálogo, 24 horas.",
+                },
+                {
+                  pregunta: "¿Hacen entregas a domicilio?",
+                  respuesta:
+                    "Sí, entregamos en La Florida y comunas cercanas. El costo varía según la zona.",
+                },
+                {
+                  pregunta: "¿Qué métodos de pago aceptan?",
+                  respuesta:
+                    "Aceptamos efectivo, transferencias bancarias y tarjetas de crédito/débito.",
+                },
+                {
+                  pregunta: "¿Pueden hacer tortas sin azúcar o veganas?",
+                  respuesta:
+                    "Sí, tenemos opciones especiales (sin azúcar, veganas y para alergias). Indícanos tus necesidades en el pedido.",
+                },
+              ].map((item, index) => (
                 <div key={index} className="bg-white p-6 rounded-lg shadow-md">
                   <h3 className="text-xl font-semibold text-gray-800 mb-3 flex items-start gap-2">
                     <AlertCircle className="text-pink-600 mt-1 flex-shrink-0" size={20} />

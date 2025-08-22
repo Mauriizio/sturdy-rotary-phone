@@ -5,6 +5,7 @@ import Productos from "./pages/Productos";
 import Contacto from "./pages/Contacto";
 import Cursos from "./pages/Cursos";
 import Nosotros from "./pages/Nosotros";
+import Footer from "./components/Footer";
 import { MessageCircle } from "lucide-react";
 import { wa } from "./config";
 
@@ -22,6 +23,7 @@ export default function App() {
           <Route path="/contacto" element={<Contacto />} />
         </Routes>
       </main>
+       <Footer />
 
       {/* Botón flotante global de WhatsApp (aparece en todas las páginas) */}
       <a
