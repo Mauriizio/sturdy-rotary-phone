@@ -150,29 +150,29 @@ Me gustaría cotizar algo similar. ¿Podrían ayudarme con los detalles y precio
     },
     {
       id: 9,
-      nombre: "Torta Rústica",
+      nombre: "Pucca Buttercream",
       categoria: "buttercream",
-      descripcion: "Torta semi-naked con buttercream y decoración rústica",
-      imagen: "/placeholder.svg?height=300&width=300",
-      tags: ["Rústica", "Semi-naked", "Natural"],
+      descripcion: "Torta Pucca Buttercream deliciosa",
+      imagen: "/Tortas/buttercream3.png",
+      tags: ["Buttercream", "Pucca"],
     },
 
     // Chocolates
     {
       id: 10,
-      nombre: "Torta Selva Negra",
+      nombre: "Torta Chocolate Cumpleaños",
       categoria: "chocolate",
-      descripcion: "Clásica torta de chocolate con cerezas y crema chantilly",
-      imagen: "/placeholder.svg?height=300&width=300",
-      tags: ["Selva Negra", "Cerezas", "Clásica"],
+      descripcion: "Torta Garnache Chocolate  Cumpleaños",
+      imagen: "/Tortas/chocolate1.png",
+      tags: ["Garnache", "Chocolate", "Cumpleaños"],
     },
-    {
+     {
       id: 11,
-      nombre: "Torta Death by Chocolate",
+      nombre: "Torta Chocolate Oreo",
       categoria: "chocolate",
-      descripcion: "Intensa torta de chocolate con ganache y brownies",
-      imagen: "/placeholder.svg?height=300&width=300",
-      tags: ["Intenso", "Ganache", "Brownies"],
+      descripcion: "Torta de Chocolate  con galleta oreo",
+      imagen: "/Tortas/chocolate2.png",
+      tags: ["Oreo", "Chocolate"],
     },
     {
       id: 12,
