@@ -1,0 +1,56 @@
+{
+  "id": "https://dulcessecretos.online/",
+  "name": "Dulces Secretos",
+  "short_name": "DulcesSecretos",
+  "description": "Repostería artesanal en La Florida, Santiago. Tortas, postres, cursos y atención por WhatsApp.",
+  "lang": "es-CL",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "theme_color": "#ec4899",
+  "background_color": "#ffffff",
+  "categories": ["food", "shopping", "education"],
+  "icons": [
+    {
+      "src": "/logo2.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo2.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/fondoweb1.jpg",
+      "type": "image/jpeg",
+      "sizes": "1280x720",
+      "label": "Catálogo y cursos de repostería"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Productos",
+      "short_name": "Productos",
+      "url": "/productos",
+      "icons": [{ "src": "/logo2.jpg", "sizes": "192x192", "type": "image/jpeg" }]
+    },
+    {
+      "name": "Cursos",
+      "short_name": "Cursos",
+      "url": "/cursos",
+      "icons": [{ "src": "/logo2.jpg", "sizes": "192x192", "type": "image/jpeg" }]
+    },
+    {
+      "name": "Contacto",
+      "short_name": "Contacto",
+      "url": "/contacto",
+      "icons": [{ "src": "/logo2.jpg", "sizes": "192x192", "type": "image/jpeg" }]
+    }
+  ]
+}

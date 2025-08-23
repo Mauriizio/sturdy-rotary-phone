@@ -256,86 +256,103 @@ export default function Productos() {
               </p>
             </div>
 
-            {/* Grid de productos */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-              {productosFiltrados.map((producto) => (
-                <div
-                  key={producto.id}
-                  className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group"
-                >
-                  {/* Imagen */}
-                  <div className="relative overflow-hidden">
-                    <img
-                      src={producto.imagen || "/placeholder.svg"}
-                      alt={producto.nombre}
-                      className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300 flex items-center justify-center">
-                      <button
-                        onClick={() => setProductoSeleccionado(producto)}
-                        className="bg-white text-gray-800 px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center gap-2 hover:bg-gray-100"
-                        aria-label={`Ver detalles de ${producto.nombre}`}
-                      >
-                        <Eye size={16} />
-                        Ver Detalles
-                      </button>
-                    </div>
+            {/* Grid de productos (foto grande, foco en la parte baja, contenido compacto, botón siempre alineado) */}
+<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 items-stretch">
+  {productosFiltrados.map((producto) => (
+    <article
+      key={producto.id}
+      className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 group flex flex-col h-full"
+    >
+      {/* Imagen protagonista — MÁS ALTA y con object-bottom */}
+      <div className="relative h-[300px] md:h-[340px] lg:h-[360px]">
+        <img
+          src={producto.imagen || "/placeholder.svg"}
+          alt={producto.nombre}
+          className="absolute inset-0 w-full h-full object-cover object-bottom group-hover:scale-105 transition-transform duration-300"
+          style={{ objectPosition: "center bottom" }} // fallback extra
+          loading="lazy"
+          decoding="async"
+        />
 
-                    {/* Corazón / Favoritos */}
-                    <div className="absolute top-4 right-4">
-                      <button
-                        onClick={() => toggleFavorito(producto.id)}
-                        className="bg-white/80 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors duration-300"
-                        aria-pressed={isFavorito(producto.id)}
-                        aria-label={
-                          isFavorito(producto.id)
-                            ? `Quitar ${producto.nombre} de favoritos`
-                            : `Agregar ${producto.nombre} a favoritos`
-                        }
-                        title={isFavorito(producto.id) ? "Quitar de favoritos" : "Agregar a favoritos"}
-                      >
-                        <Heart
-                          className={`${
-                            isFavorito(producto.id)
-                              ? "text-pink-600 fill-current"
-                              : "text-pink-600"
-                          }`}
-                          size={18}
-                        />
-                      </button>
-                    </div>
-                  </div>
+        {/* Overlay "Ver detalles" al hover */}
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+          <button
+            onClick={() => setProductoSeleccionado(producto)}
+            className="bg-white text-gray-800 px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center gap-2 hover:bg-gray-100"
+            aria-label={`Ver detalles de ${producto.nombre}`}
+          >
+            <Eye size={16} />
+            Ver Detalles
+          </button>
+        </div>
 
-                  {/* Info */}
-                  <div className="p-6">
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">{producto.nombre}</h3>
-                    <p className="text-gray-600 mb-4 text-sm leading-relaxed">{producto.descripcion}</p>
+        {/* Favoritos */}
+        <div className="absolute top-3 right-3">
+          <button
+            onClick={() => toggleFavorito(producto.id)}
+            className="bg-white/85 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors duration-300"
+            aria-pressed={isFavorito(producto.id)}
+            aria-label={
+              isFavorito(producto.id)
+                ? `Quitar ${producto.nombre} de favoritos`
+                : `Agregar ${producto.nombre} a favoritos`
+            }
+            title={isFavorito(producto.id) ? "Quitar de favoritos" : "Agregar a favoritos"}
+          >
+            <Heart
+              className={isFavorito(producto.id) ? "text-pink-600 fill-current" : "text-pink-600"}
+              size={18}
+            />
+          </button>
+        </div>
+      </div>
 
-                    {/* Tags */}
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {producto.tags.slice(0, 3).map((tag, index) => (
-                        <span
-                          key={index}
-                          className="bg-gray-100 text-gray-600 px-3 py-1 rounded-full text-xs font-medium"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
+      {/* Contenido compacto (menos aire) */}
+      <div className="p-4 md:p-5 flex flex-col flex-1">
+        <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-1.5">
+          {producto.nombre}
+        </h3>
 
-                    {/* Botón contacto */}
-                    <button
-                      onClick={() => handleWhatsAppOrder(producto)}
-                      className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white py-3 px-4 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2"
-                    >
-                      <MessageCircle size={18} />
-                      Ordenar Similar
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
+        {/* Descripción: máximo 2 líneas */}
+        <p
+          className="text-gray-600 text-sm leading-relaxed mb-2"
+          style={{
+            display: "-webkit-box",
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: "vertical",
+            overflow: "hidden",
+            minHeight: "36px", // asegura 2 líneas sin empujar
+          }}
+        >
+          {producto.descripcion}
+        </p>
+
+        {/* Chips pequeños para no empujar el botón */}
+        <div className="flex flex-wrap gap-1.5 mb-3">
+          {producto.tags.slice(0, 3).map((tag, i) => (
+            <span
+              key={i}
+              className="bg-gray-100 text-gray-600 px-2.5 py-0.5 rounded-full text-[11px] font-medium"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+
+        {/* Botón SIEMPRE pegado abajo y alineado entre tarjetas */}
+        <button
+          onClick={() => handleWhatsAppOrder(producto)}
+          className="mt-auto w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2"
+        >
+          <MessageCircle size={18} />
+          Ordenar Similar
+        </button>
+      </div>
+    </article>
+  ))}
+</div>
+
+
 
             {/* Botón flotante para abrir Favoritos */}
             <button
