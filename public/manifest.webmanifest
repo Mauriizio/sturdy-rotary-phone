@@ -12,17 +12,12 @@
   "background_color": "#ffffff",
   "categories": ["food", "shopping", "education"],
   "icons": [
-    { "src": "/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
-    { "src": "/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-192.png",  "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icons/icon-512.png",  "sizes": "512x512", "type": "image/png", "purpose": "any" },
     { "src": "/icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
   ],
   "screenshots": [
-    {
-      "src": "/fondoweb1.jpg",
-      "type": "image/jpeg",
-      "sizes": "1280x720",
-      "label": "Catálogo y cursos de repostería"
-    }
+    { "src": "/fondoweb1.jpg", "type": "image/jpeg", "sizes": "1280x720", "label": "Catálogo y cursos de repostería" }
   ],
   "shortcuts": [
     {

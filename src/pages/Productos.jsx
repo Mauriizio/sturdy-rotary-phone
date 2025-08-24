@@ -34,6 +34,25 @@ export default function Productos() {
         content="Explora, guarda favoritos y cotiza por WhatsApp. Sin cuentas, sin complicaciones."
       />
       <meta name="twitter:image" content="https://dulcessecretos.online/fondoweb1.jpg" />
+
+    <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": productosFiltrados.map((p, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "name": p.nombre,
+        "url": `https://dulcessecretos.online/productos#${p.id}`
+      }))
+    }),
+  }}
+/>
+
+
+
     </>
   );
 
